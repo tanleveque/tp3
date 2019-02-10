@@ -15,9 +15,6 @@ const users = [{
   naissance : "10/01/1991",
 }];
 
-const listItems = Object.keys(users).map((user,i) =>
-  <div key={users[user]}>{user}{i}</div>
-);
 
 class App extends Component {
 
@@ -26,9 +23,14 @@ class App extends Component {
     return (
       <div className="App">
         <h2> Facebook </h2>
-          <ul>
-          {listItems}
-          </ul>        
+        {/* {users.map((user,i) =>
+          <Profils key={i} profilsData={user}/>  
+        )}; */}
+
+        {users.map((user, index) => {
+            return <Profils key={index} profilsData={user} />
+        })}
+        
       </div>
 
     );
